@@ -2,26 +2,96 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  body {
+    @apply bg-primary font-montserrat text-main;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  .pretitle {
+    @apply font-alexBrush text-[42px] text-accent leading-none;
+  }
+
+  .h2 {
+    @apply text-[32px] xl:text-[38px] font-semibold leading-tight;
+  }
+
+  .btn {
+    @apply w-full rounded-full cursor-pointer transition-all flex justify-center items-center font-medium;
+  }
+
+  .btn-sm {
+    @apply w-[146px]  h-[50px];
+  }
+
+  .btn-lg {
+    @apply w-[160px] h-[54px];
+  }
+
+  .btn-accent {
+    @apply bg-accent text-main hover:bg-accent-hover;
+  }
+
+  .btn-white {
+    @apply bg-main text-primary hover:bg-main/80;
+  }
+
+  .section {
+    @apply py-12 xl:py-24;
+  }
+  
+  /* main player */
+  
+  .rap-progress {
+    @apply !bg-accent;
+  }
+  .rap-pin {
+    @apply !bg-main;
+  }
+  .rap-container .rap-slider .rap-progress .rap-pin {
+    @apply !w-[14px] !h-[14px] !bg-main;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.active {
+  @apply border-b-2 border-accent;
+}
+
+.album-slider .rap-container .rap-volume .rap-volume-controls {
+  @apply !bg-accent;
+}
+
+.album-slider .rap-container .rap-slider {
+  @apply !bg-primary/40;
+}
+
+.album-slider .rap-container .rap-slider .rap-progress {
+  @apply !bg-main;
+}
+
+.album-slider .rap-container .rap-pp-button svg {
+  @apply w-[12px];
+}
+
+.album-slider .rap-container .rap-volume .rap-volume-btn svg {
+  @apply w-[20px];
+}
+
+.album-slider .rap-container .rap-pp-button svg path, .album-slider .rap-container .rap-volume .rap-volume-btn svg path {
+  @apply fill-accent;
+}
+
+.album-slider .rap-container .rap-controls span {
+  @apply !text-sm;
+}
+
+/* .album-player {
+  @apply !w-[90px] !min-w-0 text-center; 
+}
+
+.album-player .rap-controls .rap-slider, .album-player .rap-controls .rap-total-time {
+  @apply hidden;
+} */
+
+.thumb-slider .swiper-slide-thumb-active {
+  @apply border-2 border-accent overflow-hidden transition-all duration-700;
 }
